@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: healthbot-line
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: LINE_TOKEN
+        sync: false
+      - key: LINE_SECRET
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
